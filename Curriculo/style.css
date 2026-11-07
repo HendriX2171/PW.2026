@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#ececec;
+    margin: 0;
+
+}
+
+.curriculo{
+    width:100%;
+    min-height: 100vh;
+
+    display:flex;
+
+background-color: white;
+    
+}
+
+.lateral{
+    width:30%;
+    background:#5f6d78;
+    color:white;
+
+    padding:30px;
+}
+
+.foto{
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    display:block;
+    margin:0 auto 20px;
+}
+
+.lateral h3{
+    margin-top:25px;
+    margin-bottom:10px;
+}
+
+.lateral ul{
+    padding-left:20px;
+}
+
+.conteudo{
+    width:70%;
+    padding:40px;
+}
+
+header{
+    margin-bottom:40px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header h2{
+    color:gray;
+    font-size:20px;
+}
+
+.conteudo h3{
+    margin-top:20px;
+    margin-bottom:10px;
+    border-bottom:2px solid #ddd;
+}
+
+.conteudo h4{
+    margin-top:15px;
+}
+
+.conteudo p{
+    margin-top:5px;
+    line-height:1.6;
+}
