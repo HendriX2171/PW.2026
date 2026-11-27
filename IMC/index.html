@@ -1,50 +1,112 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de IMC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sytle.css">
-    <script src="https://kit.fontawesome.com/cf288ba9ca.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e6f2ff;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004c99;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
+
+    <div class="container">
+
         <h1>Calculadora de IMC</h1>
-        <p>Descubra seu índice de massa corporal</p>
-    </header>
 
-    <section>
-        <div>
-            <p>
-                <i class="fa-solid fa-user"></i>
-                <label for="txtnome">Nome:</label>
-                <input type="text" id="txtnome" placeholder="Seu nome">
-            </p>
-            <p>
-                <i class="fa-solid fa-weight-hanging"></i>
-                <label for="txtpeso">Peso (kg):</label>
-                <input type="number" id="txtpeso" placeholder="70" step="any">
+        <p>Digite seu peso (kg):</p>
+        <input type="number" id="peso" placeholder="Ex: 70">
 
-            </p>
-            <p>
-                <i class="fa-solid fa-ruler"></i>
-                <label for="txtaltura">Altura (m):</label>
-            <input type="number" id="txtaltura" placeholder="1.70" step="any">
-            </p>
-            <p>
-                <input type="button" value="Calcular IMC" onclick="calcular()">
-            </p>
-        </div>
+        <p>Digite sua altura (m):</p>
+        <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75">
 
-        <div id="res" hidden>
-            <p id="periodoDia"></p>
-            <p>Seu Índice de Massa Corporal é <b id="imc"></b></p>
-            <p>Classificação: <b id="classificacao"></b></p>
-        </div>
+        <br><br>
 
-    </section>
+        <button onclick="calcularIMC()">Calcular IMC</button>
 
-    <script src="java.js"></script>
+        <p id="resultado"></p>
+
+    </div>
+
+    <script>
+
+        function calcularIMC() {
+
+            var peso = document.getElementById("peso").value;
+            var altura = document.getElementById("altura").value;
+
+            if (peso == "" || altura == "" || peso <= 0 || altura <= 0) {
+                document.getElementById("resultado").innerHTML =
+                "Digite valores válidos!";
+            } 
+            else {
+
+                var imc = peso / (altura * altura);
+
+                var classificacao = "";
+
+                if (imc < 18.5) {
+                    classificacao = "Abaixo do peso";
+                }
+                else if (imc < 25) {
+                    classificacao = "Peso normal";
+                }
+                else if (imc < 30) {
+                    classificacao = "Sobrepeso";
+                }
+                else {
+                    classificacao = "Obesidade";
+                }
+
+                document.getElementById("resultado").innerHTML =
+                "Seu IMC é: " + imc.toFixed(2) +
+                "<br>Classificação: " + classificacao;
+            }
+        }
+
+    </script>
+
 </body>
 </html>
