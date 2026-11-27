@@ -2,8 +2,9 @@ function calcularIMC() {
 
     var peso = document.getElementById("peso").value;
     var altura = document.getElementById("altura").value;
+    var altura = document.getElementById("Nome").value;
 
-    if (peso == "" || altura == "" || peso <= 0 || altura <= 0) {
+     if (nome == "" || peso == "" || altura == "" || peso <= 0 || altura <= 0) {
 
         document.getElementById("resultado").innerHTML =
         "Digite valores válidos!";
@@ -27,8 +28,11 @@ function calcularIMC() {
             classificacao = "Obesidade";
         }
 
-        document.getElementById("resultado").innerHTML =
+                document.getElementById("resultado").innerHTML =
+        "Olá, " + nome + "!<br>" +
         "Seu IMC é: " + imc.toFixed(2) +
-        "<br>Classificação: " + classificacao;
+        "<br>Classificação: " + classificacao +
+        "<br>Obrigado por utilizar nossa calculadora!";
     }
+
 }
