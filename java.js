@@ -1,4 +1,3 @@
-
 function calcularIMC() {
 
     var peso = document.getElementById("peso").value;
@@ -31,7 +30,5 @@ function calcularIMC() {
         document.getElementById("resultado").innerHTML =
         "Seu IMC é: " + imc.toFixed(2) +
         "<br>Classificação: " + classificacao;
-
     }
-
 }
