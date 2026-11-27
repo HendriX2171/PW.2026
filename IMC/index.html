@@ -5,49 +5,7 @@
     <meta charset="UTF-8">
     <title>Calculadora de IMC</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            background-color: #e6f2ff;
-            text-align: center;
-        }
-
-        .container {
-            background-color: white;
-            width: 300px;
-            margin: 100px auto;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h1 {
-            color: #0066cc;
-        }
-
-        input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px;
-        }
-
-        button {
-            background-color: #0066cc;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #004c99;
-        }
-
-        #resultado {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -60,7 +18,7 @@
         <input type="number" id="peso" placeholder="Ex: 70">
 
         <p>Digite sua altura (m):</p>
-        <input type="number" id="altura" step="0.01" placeholder="Ex: 1.75">
+        <input type="number" id="altura" placeholder="Ex: 1.75">
 
         <br><br>
 
@@ -70,43 +28,7 @@
 
     </div>
 
-    <script>
-
-        function calcularIMC() {
-
-            var peso = document.getElementById("peso").value;
-            var altura = document.getElementById("altura").value;
-
-            if (peso == "" || altura == "" || peso <= 0 || altura <= 0) {
-                document.getElementById("resultado").innerHTML =
-                "Digite valores válidos!";
-            } 
-            else {
-
-                var imc = peso / (altura * altura);
-
-                var classificacao = "";
-
-                if (imc < 18.5) {
-                    classificacao = "Abaixo do peso";
-                }
-                else if (imc < 25) {
-                    classificacao = "Peso normal";
-                }
-                else if (imc < 30) {
-                    classificacao = "Sobrepeso";
-                }
-                else {
-                    classificacao = "Obesidade";
-                }
-
-                document.getElementById("resultado").innerHTML =
-                "Seu IMC é: " + imc.toFixed(2) +
-                "<br>Classificação: " + classificacao;
-            }
-        }
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
